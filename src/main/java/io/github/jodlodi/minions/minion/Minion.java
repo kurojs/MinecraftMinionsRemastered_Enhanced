@@ -65,11 +65,7 @@ public class Minion extends PathfinderMob implements OwnableEntity {
     protected static final EntityDataAccessor<Boolean> DATA_SITTING = SynchedEntityData.defineId(Minion.class, EntityDataSerializers.BOOLEAN);
     protected static final Vec3i CUSTOM_ITEM_PICKUP_REACH = new Vec3i(2, 1, 2);
     public static final int BLINK_COOLDOWN = 20;
-<<<<<<< HEAD
     public static final int DEFAULT_RED = 5898479;
-=======
-    public static final int DEFAULT_RED = 9185572;
->>>>>>> ea2330bfee26a9f4dc8240785dc61261bee1fc5f
     public static final float DEFAULT_WIDTH = 0.6F;
     public static final float DEFAULT_HEIGHT = 0.95F;
 
@@ -336,11 +332,7 @@ public class Minion extends PathfinderMob implements OwnableEntity {
 
     @SuppressWarnings("deprecation")
     public float getMineSpeed() {
-<<<<<<< HEAD
         float speed = 133.75F;
-=======
-        float speed = 3.75F;
->>>>>>> ea2330bfee26a9f4dc8240785dc61261bee1fc5f
 
         if (MobEffectUtil.hasDigSpeed(this)) {
             speed *= 1.0F + (float)(MobEffectUtil.getDigSpeedAmplification(this) + 1) * 0.2F;
