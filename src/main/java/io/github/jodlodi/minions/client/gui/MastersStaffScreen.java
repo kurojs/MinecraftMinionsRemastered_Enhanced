@@ -103,7 +103,7 @@ public class MastersStaffScreen extends Screen {
                 BlockEntity blockEntity = this.player.level.getBlockEntity(pos);
 
                 // FLAGS
-                boolean minionSpace = capability.minionCount() < 4;
+                boolean minionSpace = capability.minionCount() < 1;
 
                 // TOP BUTTON // SUMMONING
                 if (minionSpace && !secondary) {

@@ -28,6 +28,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.OwnableEntity;
 import net.minecraft.world.entity.PathfinderMob;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
@@ -83,6 +84,11 @@ public class Minion extends PathfinderMob implements OwnableEntity {
         this.entityData.define(DATA_SITTING, false);
     }
 
+    public static AttributeSupplier.Builder createAttributes() {
+        return PathfinderMob.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 20.0D);
+    }
+
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new EnactOrderGoal(this, 1.0D));
@@ -131,6 +137,22 @@ public class Minion extends PathfinderMob implements OwnableEntity {
     public void remove(RemovalReason removalReason) {
         PacketRegistry.CHANNEL.send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> this), new PoofPacket(this.getId()));
         super.remove(removalReason);
+    }
+
+    @Override
+    public void die(DamageSource cause) {
+        LivingEntity owner = this.getOwner();
+        if (owner instanceof Player player) {
+            player.getInventory().items.removeIf(itemStack -> {
+                if (itemStack.is(CommonRegistry.MASTERS_STAFF.get())) {
+                    itemStack.shrink(1);
+                    return itemStack.isEmpty();
+                }
+                return false;
+            });
+
+        }
+        super.die(cause);
     }
 
     public int getMinionID(IMasterCapability masterCapability) {
@@ -289,11 +311,6 @@ public class Minion extends PathfinderMob implements OwnableEntity {
 
     @Override
     public boolean removeWhenFarAway(double distance) {
-        return false;
-    }
-
-    @Override
-    public boolean hurt(DamageSource damageSource, float v) {
         return false;
     }
 

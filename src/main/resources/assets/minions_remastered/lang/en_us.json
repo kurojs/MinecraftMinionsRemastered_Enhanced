@@ -1,8 +1,5 @@
 {
-  "item.minions_remastered.minion_spawn_egg": "Minion Spawn Egg",
-<<<<<<< HEAD
-  "item.minions_remastered.masters_staff": "Invocador de peruanos"
-=======
-  "item.minions_remastered.masters_staff": "Master's Staff"
->>>>>>> ea2330bfee26a9f4dc8240785dc61261bee1fc5f
+  "item.minions_remastered.minion_spawn_egg": "Huevo Generador de Esclavos",
+  "item.minions_remastered.masters_staff": "Invocador de esclavos",
+  "entity.minions_remastered.minion": "esclavito"
 }

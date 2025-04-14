@@ -40,6 +40,6 @@ public class SitButton extends AbstractMastersButton {
 
     @Override
     protected MutableComponent getName() {
-        return Component.literal("Sit").withStyle(ChatFormatting.BLUE);
+        return Component.literal("Alivianate un rato").withStyle(ChatFormatting.BLUE);
     }
 }

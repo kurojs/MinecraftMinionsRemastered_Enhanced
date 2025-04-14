@@ -82,7 +82,7 @@ public class MasterCapabilityHandler implements IMasterCapability {
             }
         }
 
-        if (size < 4) this.minions.add(uuid);
+        if (size < 1) this.minions.add(uuid);
         if (!this.player.level.isClientSide) this.sendUpdatePacket();
     }
 
@@ -222,14 +222,14 @@ public class MasterCapabilityHandler implements IMasterCapability {
 
     @Override
     public void deserializeNBT(CompoundTag tag) {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < 1; i++) {
             if (tag.contains("MinionUUID" + i)) {
                 this.minions.add(tag.getUUID("MinionUUID" + i));
             } else this.minions.add(null);
         }
 
-        for (int i = 0; i < 4; i++) {
-            if (tag.contains("MinionInventory" + i)) {
+        for (int i = 0; i < 1; i++) {
+            if (tag.contains("MinionInventory0")) {
                 this.inventories.add(tag.getCompound("MinionInventory" + i));
             } else this.inventories.add(new CompoundTag());
         }

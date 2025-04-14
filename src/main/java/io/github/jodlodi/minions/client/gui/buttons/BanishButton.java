@@ -40,10 +40,10 @@ public class BanishButton extends AbstractMastersButton {
 
     @Override
     protected MutableComponent getName() {
-        Component name = Component.literal("Minion");
+        Component name = Component.literal("esclavito");
         if (this.getScreen().target instanceof Minion minion && this.capability.isMinion(minion.getUUID())) {
             name = minion.getName();
         }
-        return Component.literal("Banish ").append(name).withStyle(ChatFormatting.DARK_RED);
+        return Component.literal("Toma un descanso ").append(name).withStyle(ChatFormatting.DARK_RED);
     }
 }

@@ -38,11 +38,11 @@ public class SummonButton extends AbstractMastersButton {
 
     @Override
     protected MutableComponent getName() {
-        return Component.literal("Summon Minion").withStyle(ChatFormatting.BLUE);
+        return Component.literal("Invocar esclavito").withStyle(ChatFormatting.BLUE);
     }
 
     @Override
     protected List<MutableComponent> getTooltip() {
-        return List.of(Component.literal("Current Count: " + this.capability.minionCount()).withStyle(ChatFormatting.GRAY));
+        return List.of(Component.literal("Cantidad de esclavitos: " + this.capability.minionCount()).withStyle(ChatFormatting.GRAY));
     }
 }
